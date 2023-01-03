@@ -17,7 +17,6 @@ const createProfile = asyncHandler(async(req, res) => {
             data: {}
         });
     }
-
 });
 const getProfile = asyncHandler(async(req, res) => {
     try {
