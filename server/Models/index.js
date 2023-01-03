@@ -1,3 +1,3 @@
 module.exports = {
-    ProfileModel: require('./profile-model')
+    Profile: require('./profile-model')
 }
