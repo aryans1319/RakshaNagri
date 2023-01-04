@@ -3,7 +3,6 @@ const { default: mongoose } = require('mongoose');
 const connectDB = async() => {
     try {
         mongoose.set('strictQuery', true);
-        // console.log(process.env.PORT);
         const conn = await mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,

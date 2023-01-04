@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const tickitSchema = new mongoose.Schema({
+const ticketSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -55,5 +55,5 @@ const tickitSchema = new mongoose.Schema({
     }],
 }, { timestamps: true });
 
-const Tickit = mongoose.model("Tickit", tickitSchema);
-module.exports = Tickit;
+const Ticket = mongoose.model("Ticket", ticketSchema);
+module.exports = Ticket;

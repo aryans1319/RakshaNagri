@@ -1,4 +1,4 @@
-const { Tickit } = require('../Models/index');
+const { Ticket } = require('../Models/index');
 const asyncHandler = require('express-async-handler');
 
 
@@ -22,53 +22,53 @@ const createFilter = (data) => {
     }
     return filter;
 }
-const createUpdatedData = (tickit, data) => {
+const createUpdatedData = (Ticket, data) => {
 
     if (data.title) {
-        tickit.title = data.title;
+        Ticket.title = data.title;
     }
     if (data.description) {
-        tickit.description = data.description;
+        Ticket.description = data.description;
     }
     if (data.priority) {
-        tickit.priority = data.priority;
+        Ticket.priority = data.priority;
     }
     if (data.status) {
-        tickit.status = data.status;
+        Ticket.status = data.status;
     }
     if (data.category) {
-        tickit.category = data.category;
+        Ticket.category = data.category;
     }
     if (data.kind) {
-        tickit.kind = data.kind;
+        Ticket.kind = data.kind;
     }
     if (data.location) {
-        tickit.location = data.location;
+        Ticket.location = data.location;
     }
     if (data.latitude) {
-        tickit.latitude = data.latitude;
+        Ticket.latitude = data.latitude;
     }
     if (data.longitude) {
-        tickit.longitude = data.longitude;
+        Ticket.longitude = data.longitude;
     }
     if (data.upvotes) {
-        tickit.upvotes = data.upvotes;
+        Ticket.upvotes = data.upvotes;
     }
     if (data.downvotes) {
-        tickit.downvotes = data.downvotes;
+        Ticket.downvotes = data.downvotes;
     }
     if (data.images) {
-        tickit.images = data.images;
+        Ticket.images = data.images;
     }
-    return tickit;
+    return Ticket;
 }
 
 
-const createTickit = asyncHandler(async(req, res) => {
+const createTicket = asyncHandler(async(req, res) => {
     try {
-        const response = await Tickit.create(req.body);
+        const response = await Ticket.create(req.body);
         return res.status(201).json({
-            message: "Successfully created tickit",
+            message: "Successfully created Ticket",
             success: true,
             err: {},
             data: response
@@ -82,13 +82,13 @@ const createTickit = asyncHandler(async(req, res) => {
         });
     }
 });
-const getAllTickit = asyncHandler(async(req, res) => {
+const getAllTicket = asyncHandler(async(req, res) => {
     try {
         const filterObject = createFilter(req.query);
         console.log(filterObject);
-        const response = await Tickit.find(filterObject);
+        const response = await Ticket.find(filterObject);
         return res.status(201).json({
-            message: "Successfully fetched tickit",
+            message: "Successfully fetched Ticket",
             success: true,
             err: {},
             data: response
@@ -103,12 +103,12 @@ const getAllTickit = asyncHandler(async(req, res) => {
         });
     }
 });
-const deleteTickit = asyncHandler(async(req, res) => {
+const deleteTicket = asyncHandler(async(req, res) => {
     try {
-        const tickitId = req.params.id;
-        const response = await Tickit.deleteOne({ tickitId });
+        const TicketId = req.params.id;
+        const response = await Ticket.deleteOne({ TicketId });
         return res.status(200).json({
-            message: "Successfully deleted tickit",
+            message: "Successfully deleted Ticket",
             success: true,
             err: {},
             data: response
@@ -123,18 +123,18 @@ const deleteTickit = asyncHandler(async(req, res) => {
         });
     }
 });
-const updateTickit = asyncHandler(async(req, res) => {
+const updateTicket = asyncHandler(async(req, res) => {
     try {
-        const tickitId = req.params.id;
+        const TicketId = req.params.id;
         const data = req.body;
-        const tickit = await Tickit.findById(tickitId);
-        const updatedTickit = createUpdatedData(tickit, data);
-        await updatedTickit.save();
+        const Ticket = await Ticket.findById(TicketId);
+        const updatedTicket = createUpdatedData(Ticket, data);
+        await updatedTicket.save();
         return res.status(200).json({
-            message: "Successfully updated tickit",
+            message: "Successfully updated Ticket",
             success: true,
             err: {},
-            data: updatedTickit
+            data: updatedTicket
         });
     } catch (error) {
         console.log(error);
@@ -146,4 +146,4 @@ const updateTickit = asyncHandler(async(req, res) => {
         });
     }
 });
-module.exports = { createTickit, getAllTickit, deleteTickit, updateTickit };
+module.exports = { createTicket, getAllTicket, deleteTicket, updateTicket };
