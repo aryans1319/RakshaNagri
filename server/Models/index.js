@@ -1,4 +1,5 @@
 module.exports = {
-    Profile: require('./profile-model'),
-    Tickit: require('./tickit-model')
+    Profile: require('./profileModel'),
+    Ticket: require('./ticketModel'),
+    User: require('./userModel')
 }

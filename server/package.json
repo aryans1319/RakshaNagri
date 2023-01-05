@@ -4,7 +4,7 @@
     "description": "A Community Platform for Social Good",
     "main": "index.js",
     "scripts": {
-        "serve": "node index.js",
+        "start": "nodemon index.js",
         "dev": "nodemon index.js"
     },
     "repository": {
