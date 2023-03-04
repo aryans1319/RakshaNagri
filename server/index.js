@@ -9,9 +9,14 @@ const connectDB = require('./config/db');
 dotenv.config();
 const app = express()
 const limiter = rateLimit({
-    windowMs: 2 * 60 * 1000,
-    max: 5,
-})
+        windowMs: 2 * 60 * 1000,
+        max: 5,
+    })
+    //*
+
+// snehomoy.maitra2019 @uem.edu.in
+// Uem @2023
+
 
 app.use(cors());
 app.use(express.json());
