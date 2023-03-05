@@ -1,3 +1,6 @@
 client
 server/node_modules
 .env
+frontend/node_modules
+frontend/dist
+frontend/.parcel-cache                                                      
